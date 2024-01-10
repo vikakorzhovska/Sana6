@@ -8,7 +8,20 @@ namespace Library
 {
     public class Student : People
     {
-        public int Course { get; set; }
+        protected int _course;
+        public int Course {
+            get
+            {
+                return _course;
+            }
+            set
+            {
+                if (value >= 1 && value <= 4)
+                    _course = value;
+                else
+                    throw new CourseException(value, "Курс може бути від 1 по 4");
+            }
+            }
         public string Group { get; set; }
         public string Faculty { get; set; }
         public string University { get; set; }
